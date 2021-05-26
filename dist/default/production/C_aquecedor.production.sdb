@@ -1,0 +1,416 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F877 ]
+[d frameptr 0 ]
+"43 C:\Users\mateu\OneDrive\Faculdade\PICprojects\877\C aquecedor/LCD_Lib.c
+[v _LCD_Write_Nibble LCD_Write_Nibble `(v  1 e 1 0 ]
+"60
+[v _LCD_Cmd LCD_Cmd `(v  1 e 1 0 ]
+"69
+[v _LCD_Goto LCD_Goto `(v  1 e 1 0 ]
+"95
+[v _LCD_Print LCD_Print `(v  1 e 1 0 ]
+"106
+[v _LCD_Begin LCD_Begin `(v  1 e 1 0 ]
+"505 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\doprnt.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
+"43 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\isdigit.c
+[v _isdigit isdigit `(b  1 e 0 0 ]
+"5 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+"5 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"15 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+"6 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"66 C:\Users\mateu\OneDrive\Faculdade\PICprojects\877\C aquecedor\main.c
+[v _atualiza_ADC atualiza_ADC `(v  1 e 1 0 ]
+"74
+[v _imprime_tela_main imprime_tela_main `(v  1 e 1 0 ]
+"86
+[v _imprime_tela_ajuste1 imprime_tela_ajuste1 `(v  1 e 1 0 ]
+"94
+[v _imprime_tela_ajuste2 imprime_tela_ajuste2 `(v  1 e 1 0 ]
+"108
+[v _imprime_tela_ajuste3 imprime_tela_ajuste3 `(v  1 e 1 0 ]
+"119
+[v _imprime_tela_ajuste4 imprime_tela_ajuste4 `(v  1 e 1 0 ]
+"131
+[v _ajustes ajustes `(v  1 e 1 0 ]
+"235
+[v _controle_aquecedor controle_aquecedor `(i  1 e 2 0 ]
+"300
+[v _my_isr_routine my_isr_routine `II(v  1 e 1 0 ]
+"338
+[v _main main `(v  1 e 1 0 ]
+"34 C:\Users\mateu\OneDrive\Faculdade\PICprojects\877\C aquecedor/LCD_Lib.c
+[v _RS RS `b  1 e 0 0 ]
+"59 C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877.h
+[v _TMR0 TMR0 `VEuc  1 e 1 @1 ]
+[s S107 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"233
+[u S116 . 1 `S107 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES116  1 e 1 @6 ]
+[s S171 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+"295
+[u S180 . 1 `S171 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES180  1 e 1 @7 ]
+[s S22 . 1 `uc 1 RD0 1 0 :1:0 
+`uc 1 RD1 1 0 :1:1 
+`uc 1 RD2 1 0 :1:2 
+`uc 1 RD3 1 0 :1:3 
+`uc 1 RD4 1 0 :1:4 
+`uc 1 RD5 1 0 :1:5 
+`uc 1 RD6 1 0 :1:6 
+`uc 1 RD7 1 0 :1:7 
+]
+"357
+[u S31 . 1 `S22 1 . 1 0 ]
+[v _PORTDbits PORTDbits `VES31  1 e 1 @8 ]
+"454
+[v _INTCON INTCON `VEuc  1 e 1 @11 ]
+[s S128 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INTF 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INTE 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+"477
+[s S137 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 TMR0IE 1 0 :1:5 
+]
+[u S142 . 1 `S128 1 . 1 0 `S137 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES142  1 e 1 @11 ]
+"1147
+[v _ADRESH ADRESH `VEuc  1 e 1 @30 ]
+"1154
+[v _ADCON0 ADCON0 `VEuc  1 e 1 @31 ]
+[s S55 . 1 `uc 1 ADON 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 GO_nDONE 1 0 :1:2 
+`uc 1 CHS 1 0 :3:3 
+`uc 1 ADCS 1 0 :2:6 
+]
+"1185
+[s S61 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 GO 1 0 :1:2 
+`uc 1 CHS0 1 0 :1:3 
+`uc 1 CHS1 1 0 :1:4 
+`uc 1 CHS2 1 0 :1:5 
+`uc 1 ADCS0 1 0 :1:6 
+`uc 1 ADCS1 1 0 :1:7 
+]
+[s S69 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nDONE 1 0 :1:2 
+]
+[s S72 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 GO_DONE 1 0 :1:2 
+]
+[u S75 . 1 `S55 1 . 1 0 `S61 1 . 1 0 `S69 1 . 1 0 `S72 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES75  1 e 1 @31 ]
+"1250
+[v _OPTION_REG OPTION_REG `VEuc  1 e 1 @129 ]
+"1320
+[v _TRISA TRISA `VEuc  1 e 1 @133 ]
+"1370
+[v _TRISB TRISB `VEuc  1 e 1 @134 ]
+"1432
+[v _TRISC TRISC `VEuc  1 e 1 @135 ]
+"1494
+[v _TRISD TRISD `VEuc  1 e 1 @136 ]
+"1556
+[v _TRISE TRISE `VEuc  1 e 1 @137 ]
+"2082
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @159 ]
+"2776
+[v _TRISD0 TRISD0 `VEb  1 e 0 @1088 ]
+"2779
+[v _TRISD1 TRISD1 `VEb  1 e 0 @1089 ]
+"2782
+[v _TRISD2 TRISD2 `VEb  1 e 0 @1090 ]
+"2785
+[v _TRISD3 TRISD3 `VEb  1 e 0 @1091 ]
+"2788
+[v _TRISD4 TRISD4 `VEb  1 e 0 @1092 ]
+"2791
+[v _TRISD5 TRISD5 `VEb  1 e 0 @1093 ]
+"358 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\doprnt.c
+[v _dpowers dpowers `DC[5]ui  1 s 10 dpowers ]
+"59 C:\Users\mateu\OneDrive\Faculdade\PICprojects\877\C aquecedor\main.c
+[v _TMR0_aux TMR0_aux `i  1 e 2 0 ]
+"60
+[v _Segundos Segundos `i  1 e 2 0 ]
+"61
+[v _Minutos Minutos `i  1 e 2 0 ]
+"62
+[v _Horas Horas `i  1 e 2 0 ]
+"63
+[v _Temperatura Temperatura `i  1 e 2 0 ]
+"64
+[v _LCD_Cstring LCD_Cstring `[16]uc  1 e 16 0 ]
+"338
+[v _main main `(v  1 e 1 0 ]
+{
+"352
+[v main@temp temp `i  1 a 2 59 ]
+"356
+[v main@min_max min_max `i  1 a 2 57 ]
+"355
+[v main@hora_max hora_max `i  1 a 2 55 ]
+"354
+[v main@min_min min_min `i  1 a 2 53 ]
+"353
+[v main@hora_min hora_min `i  1 a 2 51 ]
+"377
+} 0
+"74
+[v _imprime_tela_main imprime_tela_main `(v  1 e 1 0 ]
+{
+"84
+} 0
+"235
+[v _controle_aquecedor controle_aquecedor `(i  1 e 2 0 ]
+{
+[v controle_aquecedor@temp temp `i  1 p 2 0 ]
+[v controle_aquecedor@hora_min hora_min `i  1 p 2 2 ]
+[v controle_aquecedor@min_min min_min `i  1 p 2 4 ]
+[v controle_aquecedor@hora_max hora_max `i  1 p 2 6 ]
+[v controle_aquecedor@min_max min_max `i  1 p 2 8 ]
+"298
+} 0
+"66
+[v _atualiza_ADC atualiza_ADC `(v  1 e 1 0 ]
+{
+"72
+} 0
+"131
+[v _ajustes ajustes `(v  1 e 1 0 ]
+{
+[v ajustes@temp temp `*.4i  1 a 1 wreg ]
+[v ajustes@temp temp `*.4i  1 a 1 wreg ]
+[v ajustes@hora_min hora_min `*.4i  1 p 1 33 ]
+[v ajustes@min_min min_min `*.4i  1 p 1 34 ]
+[v ajustes@hora_max hora_max `*.4i  1 p 1 35 ]
+[v ajustes@min_max min_max `*.4i  1 p 1 36 ]
+"133
+[v ajustes@temp temp `*.4i  1 a 1 41 ]
+"233
+} 0
+"119
+[v _imprime_tela_ajuste4 imprime_tela_ajuste4 `(v  1 e 1 0 ]
+{
+[v imprime_tela_ajuste4@horas_max horas_max `i  1 p 2 28 ]
+[v imprime_tela_ajuste4@minutos_max minutos_max `i  1 p 2 30 ]
+"129
+} 0
+"108
+[v _imprime_tela_ajuste3 imprime_tela_ajuste3 `(v  1 e 1 0 ]
+{
+[v imprime_tela_ajuste3@horas_min horas_min `i  1 p 2 28 ]
+[v imprime_tela_ajuste3@minutos_min minutos_min `i  1 p 2 30 ]
+"118
+} 0
+"94
+[v _imprime_tela_ajuste2 imprime_tela_ajuste2 `(v  1 e 1 0 ]
+{
+"106
+} 0
+"86
+[v _imprime_tela_ajuste1 imprime_tela_ajuste1 `(v  1 e 1 0 ]
+{
+[v imprime_tela_ajuste1@temp temp `i  1 p 2 28 ]
+"92
+} 0
+"505 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\doprnt.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
+{
+[v sprintf@sp sp `*.4uc  1 a 1 wreg ]
+"514
+[v sprintf@width width `i  1 a 2 24 ]
+"545
+[v sprintf@val val `ui  1 a 2 21 ]
+"512
+[v sprintf@c c `uc  1 a 1 26 ]
+"525
+[v sprintf@flag flag `uc  1 a 1 23 ]
+"521
+[v sprintf@prec prec `c  1 a 1 20 ]
+"507
+[v sprintf@ap ap `[1]*.4v  1 a 1 19 ]
+"505
+[v sprintf@sp sp `*.4uc  1 a 1 wreg ]
+[v sprintf@f f `*.24DCuc  1 p 1 9 ]
+"550
+[v sprintf@sp sp `*.4uc  1 a 1 27 ]
+"1567
+} 0
+"8 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\isdigit.c
+[v _isdigit isdigit `(b  1 e 0 0 ]
+{
+[v isdigit@c c `uc  1 a 1 wreg ]
+[v isdigit@c c `uc  1 a 1 wreg ]
+"14
+[v isdigit@c c `uc  1 a 1 4 ]
+"15
+} 0
+"15 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 0 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 3 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 5 ]
+"53
+} 0
+"5 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+{
+"10
+[v ___lwmod@counter counter `uc  1 a 1 8 ]
+"5
+[v ___lwmod@divisor divisor `ui  1 p 2 3 ]
+[v ___lwmod@dividend dividend `ui  1 p 2 5 ]
+"25
+} 0
+"5 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+{
+"10
+[v ___lwdiv@quotient quotient `ui  1 a 2 1 ]
+"11
+[v ___lwdiv@counter counter `uc  1 a 1 0 ]
+"5
+[v ___lwdiv@divisor divisor `ui  1 p 2 3 ]
+[v ___lwdiv@dividend dividend `ui  1 p 2 5 ]
+"30
+} 0
+"95 C:\Users\mateu\OneDrive\Faculdade\PICprojects\877\C aquecedor/LCD_Lib.c
+[v _LCD_Print LCD_Print `(v  1 e 1 0 ]
+{
+[v LCD_Print@LCD_Str LCD_Str `*.4uc  1 a 1 wreg ]
+"97
+[v LCD_Print@i i `uc  1 a 1 0 ]
+"95
+[v LCD_Print@LCD_Str LCD_Str `*.4uc  1 a 1 wreg ]
+"97
+[v LCD_Print@LCD_Str LCD_Str `*.4uc  1 a 1 1 ]
+"104
+} 0
+"69
+[v _LCD_Goto LCD_Goto `(v  1 e 1 0 ]
+{
+[v LCD_Goto@col col `uc  1 a 1 wreg ]
+[v LCD_Goto@col col `uc  1 a 1 wreg ]
+[v LCD_Goto@row row `uc  1 p 1 1 ]
+[v LCD_Goto@col col `uc  1 a 1 4 ]
+"86
+} 0
+"10 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+{
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+"13
+[v ___xxtofl@arg arg `ul  1 a 4 6 ]
+"12
+[v ___xxtofl@exp exp `uc  1 a 1 5 ]
+"10
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+[v ___xxtofl@val val `l  1 p 4 3 ]
+"15
+[v ___xxtofl@sign sign `uc  1 a 1 4 ]
+"44
+} 0
+"43 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
+{
+"45
+[v ___fltol@exp1 exp1 `uc  1 a 1 46 ]
+[v ___fltol@sign1 sign1 `uc  1 a 1 45 ]
+"43
+[v ___fltol@f1 f1 `d  1 p 4 36 ]
+"70
+} 0
+"8 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+{
+"21
+[v ___fldiv@grs grs `ul  1 a 4 30 ]
+"22
+[v ___fldiv@rem rem `ul  1 a 4 23 ]
+"20
+[v ___fldiv@new_exp new_exp `i  1 a 2 28 ]
+"19
+[v ___fldiv@aexp aexp `uc  1 a 1 35 ]
+"18
+[v ___fldiv@bexp bexp `uc  1 a 1 34 ]
+"16
+[v ___fldiv@sign sign `uc  1 a 1 27 ]
+"8
+[v ___fldiv@a a `d  1 p 4 10 ]
+[v ___fldiv@b b `d  1 p 4 14 ]
+"185
+} 0
+"106 C:\Users\mateu\OneDrive\Faculdade\PICprojects\877\C aquecedor/LCD_Lib.c
+[v _LCD_Begin LCD_Begin `(v  1 e 1 0 ]
+{
+"140
+} 0
+"60
+[v _LCD_Cmd LCD_Cmd `(v  1 e 1 0 ]
+{
+[v LCD_Cmd@Command Command `uc  1 a 1 wreg ]
+[v LCD_Cmd@Command Command `uc  1 a 1 wreg ]
+"62
+[v LCD_Cmd@Command Command `uc  1 a 1 0 ]
+"67
+} 0
+"43
+[v _LCD_Write_Nibble LCD_Write_Nibble `(v  1 e 1 0 ]
+{
+[v LCD_Write_Nibble@n n `uc  1 a 1 wreg ]
+[v LCD_Write_Nibble@n n `uc  1 a 1 wreg ]
+"45
+[v LCD_Write_Nibble@n n `uc  1 a 1 5 ]
+"58
+} 0
+"300 C:\Users\mateu\OneDrive\Faculdade\PICprojects\877\C aquecedor\main.c
+[v _my_isr_routine my_isr_routine `II(v  1 e 1 0 ]
+{
+"334
+} 0
