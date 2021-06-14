@@ -1,13 +1,15 @@
-
-/**********************************************************************
- * Arquivo:   main.c 
- * Author:    Mateus Eusébio
- * Descrição: 
+/*-----------------------FIRMWARE PARA AQUECEDOR DO PIC-----------------------*/
+/*
+ * Arquivo:   main.c
+ * Autor  :   Mateus Eusébio
+ *
  * Created on 4 de Dezembro de 2020, 10:41
  */
 
-// CONFIG
-#pragma config FOSC = XT     	// Oscillator Selection bits (XT oscillator)
+/*------------------------------Configurações---------------------------------*/
+// #pragma config statements should precede project file includes.
+// Use project enums instead of #define for ON and OFF.
+#pragma config FOSC = XT        // Oscillator Selection bits (XT oscillator)
 #pragma config WDTE = OFF       // Watchdog Timer Enable bit (WDT disabled)
 #pragma config PWRTE = ON       // Power-up Timer Enable bit (PWRT enabled)
 #pragma config CP = OFF         // FLASH Program Memory Code Protection bits (Code protection off)
@@ -19,11 +21,15 @@
 // #pragma config statements should precede project file includes.
 // Use project enums instead of #define for ON and OFF.
 
+
+
+/*---------------------------DEFINIÇÕES DE PROJETO----------------------------*/
 /*FREQUÊNCIA DO CLOCK = 4MHz*/
 #define _XTAL_FREQ 4000000 
 
 
-//LCD module connections
+/*--------------------------MAPEAMENTO DE HARDWARE----------------------------*/
+//CONEXÕES DO MÓDULO LCD
 #define LCD_RS       PORTDbits.RD0
 #define LCD_EN       PORTDbits.RD1
 #define LCD_D4       PORTDbits.RD2
@@ -36,25 +42,30 @@
 #define LCD_D5_DIR   TRISD3
 #define LCD_D6_DIR   TRISD4
 #define LCD_D7_DIR   TRISD5
-//End LCD module connections
+//FIM DAS CONEXÕES DO MÓDULO LCD
 
-/* Os dois botões em que o usuário vai interagir  */
+
+//PUSH-BOTTONS PARA INTERAÇÃO DO USUÁRIO
 #define BT_Select       PORTBbits.RB0
 #define BT_Ajuste       PORTBbits.RB1
 
-/* As chaves de nível que identificam se tem agua no aquecedor */
+//AS CHAVES DE NÍVEL QUE INDICAM O NÍVEL DA AGUA DO AQUECEDOR
 #define SW_Chave1       PORTBbits.RB4
 #define SW_Chave2       PORTBbits.RB5
 
-/* O Relé que ativa o aquecedor */
+//SAÍDA PARA O RELÉ QUE ATIVA O AQUECEDOR
 #define Rele            PORTCbits.RC0
 
 
+/*------------------------BIBLIOTECAS DO SISTEMA------------------------------*/
 #include <xc.h>
-#include <stdio.h>            // for sprintf
+#include <stdio.h>            // para o sprintf
 #include "LCD_Lib.c"          // include LCD driver source file
 #include <stdlib.h>
 
+
+
+/*--------------------------VARIÁVEIS GLOBAIS---------------------------------*/
 int TMR0_aux=0;
 int Segundos=0;
 int Minutos=0;
@@ -66,231 +77,276 @@ void atualiza_ADC()
 {
     ADCON0bits.GO_nDONE=1;
     while(ADCON0bits.GO_nDONE)
+    {
         __delay_us(10);
+    }
     return;
 }
 
 void imprime_tela_main()
 {
-    LCD_Goto(1, 1);                    									 // LCD va para Linha 1, Coluna 1
-    sprintf(LCD_Cstring,"Ho.: %02d:%02d:%02d   ",Horas,Minutos,Segundos);//Armazena a string em LCD_Cstring
-    LCD_Print(LCD_Cstring);												 //imprime o horário atual
+    LCD_Goto(1, 1);                     // LCD va para Linha 1, Coluna 1
+    sprintf(LCD_Cstring,"Ho.: %02d:%02d:%02d   ",Horas,Minutos,Segundos);//armazena a string em LCD_Cstring
+    LCD_Print(LCD_Cstring);//imprime o relógio
 
-    LCD_Goto(1, 2);														 // LCD va para Linha 2, Coluna 1
+    LCD_Goto(1, 2);// LCD va para Linha 2, Coluna 1
     sprintf(LCD_Cstring,"Te.: %02d\337c",Temperatura);
-    LCD_Print(LCD_Cstring);												 //imprime a temperatura do sistema
+    LCD_Print(LCD_Cstring);//imprime o relógio
     
 }
 
 void imprime_tela_ajuste1(int temp)
 {
-   LCD_Goto(1, 1);                    					// LCD va para Linha 1, Coluna 1
-   sprintf(LCD_Cstring,"Temp. Des: %02d\337c  ",temp);	//armazena a string em LCD_Cstring 
-   LCD_Print(LCD_Cstring);								//imprime LCD_Cstring no display
+   LCD_Goto(1, 1);                     // LCD va para Linha 1, Coluna 1
+   sprintf(LCD_Cstring,"Temp. Des: %02d\337c  ",temp);//armazena a string em LCD_Cstring 
+   LCD_Print(LCD_Cstring);//imprime LCD_Cstring no display
+    
 }
 
 void imprime_tela_ajuste2()
 
 {
-   LCD_Goto(1, 1);                    						 // LCD va para Linha 1, Coluna 1
-   sprintf(LCD_Cstring,"Horario Atual:");					 //armazena a string em LCD_Cstring 
-   LCD_Print(LCD_Cstring);									 //imprime LCD_Cstring no display
+   LCD_Goto(1, 1);                     // LCD va para Linha 1, Coluna 1
+   sprintf(LCD_Cstring,"Horario Atual:");//armazena a string em LCD_Cstring 
+   LCD_Print(LCD_Cstring);//imprime LCD_Cstring no display
    
-   LCD_Goto(1, 2);                     						 // LCD va para Linha 2, Coluna 1
-   sprintf(LCD_Cstring,"     %02d:%02d     ",Horas,Minutos); //armazena a string em LCD_Cstring 
-   LCD_Print(LCD_Cstring);									 //imprime LCD_Cstring no display
+   LCD_Goto(1, 2);                     // LCD va para Linha 2, Coluna 1
+   sprintf(LCD_Cstring,"     %02d:%02d     ",Horas,Minutos);//armazena a string em LCD_Cstring 
+   LCD_Print(LCD_Cstring);//imprime LCD_Cstring no display
+    
+    
 }
 
 void imprime_tela_ajuste3(int horas_min,int minutos_min)
 {
-   LCD_Goto(1, 1);                     						// LCD va para Linha 1, Coluna 1
-   sprintf(LCD_Cstring,"Start time:");						//armazena a string em LCD_Cstring 
-   LCD_Print(LCD_Cstring);									//imprime LCD_Cstring no display
+   LCD_Goto(1, 1);                     // LCD va para Linha 1, Coluna 1
+   sprintf(LCD_Cstring,"Start time:");//armazena a string em LCD_Cstring 
+   LCD_Print(LCD_Cstring);//imprime LCD_Cstring no display
    
-      LCD_Goto(1, 2);                     					// LCD va para Linha 2, Coluna 1
+      LCD_Goto(1, 2);                     // LCD va para Linha 2, Coluna 1
    sprintf(LCD_Cstring,"     %02d:%02d     ",horas_min,minutos_min);//armazena a string em LCD_Cstring 
-   LCD_Print(LCD_Cstring);									//imprime LCD_Cstring no display
+   LCD_Print(LCD_Cstring);//imprime LCD_Cstring no display
     
 }
 void imprime_tela_ajuste4(int horas_max,int minutos_max)
 {
-   LCD_Goto(1, 1);                     						// LCD va para Linha 1, Coluna 1
-   sprintf(LCD_Cstring,"Stop time:");						//armazena a string em LCD_Cstring 
-   LCD_Print(LCD_Cstring);									//imprime LCD_Cstring no display
+   LCD_Goto(1, 1);                     // LCD va para Linha 1, Coluna 1
+   sprintf(LCD_Cstring,"Stop time:");//armazena a string em LCD_Cstring 
+   LCD_Print(LCD_Cstring);//imprime LCD_Cstring no display
    
-      LCD_Goto(1, 2);                     					// LCD va para Linha 2, Coluna 1
+      LCD_Goto(1, 2);                     // LCD va para Linha 2, Coluna 1
    sprintf(LCD_Cstring,"     %02d:%02d     ",horas_max,minutos_max);//armazena a string em LCD_Cstring 
-   LCD_Print(LCD_Cstring);									//imprime LCD_Cstring no display
+   LCD_Print(LCD_Cstring);//imprime LCD_Cstring no display
     
 }
 
 void ajustes(int *temp,int *hora_min,int *min_min,int *hora_max,int *min_max)
 {
-      LCD_Cmd(LCD_CLEAR);
-      imprime_tela_ajuste1(*temp);
-      __delay_ms(200);
+    LCD_Cmd(LCD_CLEAR);
+    imprime_tela_ajuste1(*temp);
+    __delay_ms(200);
       
-      while(BT_Select!=0)
-      {
-          __delay_ms(200);
-          imprime_tela_ajuste1(*temp);
-          if(BT_Ajuste==0)
-          {
-              *temp=*temp+1;
-          }
-          if (*temp>99)
-              *temp=0;
-      }
-      LCD_Cmd(LCD_CLEAR);
-      imprime_tela_ajuste2();
-      __delay_ms(200);
-      while(BT_Select!=0)
-      {
-          __delay_ms(200);
-          imprime_tela_ajuste2();
-          if(BT_Ajuste==0)
-          {
-              Horas=Horas+1;
-          }
-          if (Horas>23)
-              Horas=0;
-      }
-      __delay_ms(200);
-      while(BT_Select!=0)
-      {
-          __delay_ms(200);
-          imprime_tela_ajuste2();
-          if(BT_Ajuste==0)
-          {
-              Minutos=Minutos+1;
-          }
-          if (Minutos>59)
-              Minutos=0;
-      }
-      LCD_Cmd(LCD_CLEAR);
-      imprime_tela_ajuste3(*hora_min,*min_min);
-      __delay_ms(200);
-      while(BT_Select!=0)
-      {
-          __delay_ms(200);
-          imprime_tela_ajuste3(*hora_min,*min_min);
-          if(BT_Ajuste==0)
-          {
-              *hora_min=*hora_min+1;
-          }
-          if (*hora_min>23)
-              *hora_min=0;
-      }
-      __delay_ms(200);
-      while(BT_Select!=0)
-      {
-          __delay_ms(200);
-          imprime_tela_ajuste3(*hora_min,*min_min);
-          if(BT_Ajuste==0)
-          {
-              *min_min=*min_min+1;
-          }
-          if (*min_min>59)
-              *min_min=0;
-      }
-      LCD_Cmd(LCD_CLEAR);
-      imprime_tela_ajuste4(*hora_max,*min_max);
-      __delay_ms(200);
-      while(BT_Select!=0)
-      {
-          __delay_ms(200);
-          imprime_tela_ajuste4(*hora_max,*min_max);
-          if(BT_Ajuste==0)
-          {
-              *hora_max=*hora_max+1;
-          }
-          if (*hora_max>23)
-              *hora_max=0;
-      }
-      __delay_ms(200);
-      while(BT_Select!=0)
-      {
-          __delay_ms(200);
-          imprime_tela_ajuste4(*hora_max,*min_max);
-          if(BT_Ajuste==0)
-          {
-              *min_max=*min_max+1;
-          }
-          if (*min_max>59)
+    while(BT_Select!=0)
+    {
+        __delay_ms(200);
+        imprime_tela_ajuste1(*temp);
+        if(BT_Ajuste==0)
+        {
+            *temp=*temp+1;
+        }
+        if (*temp>99)
+        {
+            *temp=0;
+        }
+    }
+    LCD_Cmd(LCD_CLEAR);
+    imprime_tela_ajuste2();
+    __delay_ms(200);
+    while(BT_Select!=0)
+    {
+        __delay_ms(200);
+        imprime_tela_ajuste2();
+        if(BT_Ajuste==0)
+        {
+            Horas=Horas+1;
+        }
+        if (Horas>23)
+        {
+            Horas=0;
+        }
+    }
+    __delay_ms(200);
+    while(BT_Select!=0)
+    {
+        __delay_ms(200);
+        imprime_tela_ajuste2();
+        if(BT_Ajuste==0)
+        {
+            Minutos=Minutos+1;
+        }
+        if (Minutos>59)
+        {
+            Minutos=0;
+        }
+    }
+    LCD_Cmd(LCD_CLEAR);
+    imprime_tela_ajuste3(*hora_min,*min_min);
+    __delay_ms(200);
+    while(BT_Select!=0)
+    {
+        __delay_ms(200);
+        imprime_tela_ajuste3(*hora_min,*min_min);
+        if(BT_Ajuste==0)
+        {
+            *hora_min=*hora_min+1;
+        }
+        if (*hora_min>23)
+        {
+            *hora_min=0;
+        }
+    }
+    __delay_ms(200);
+    while(BT_Select!=0)
+    {
+        __delay_ms(200);
+        imprime_tela_ajuste3(*hora_min,*min_min);
+        if(BT_Ajuste==0)
+        {
+            *min_min=*min_min+1;
+        }
+        if (*min_min>59)
+        {
+            *min_min=0;
+        }
+    }
+    LCD_Cmd(LCD_CLEAR);
+    imprime_tela_ajuste4(*hora_max,*min_max);
+    __delay_ms(200);
+    while(BT_Select!=0)
+    {
+        __delay_ms(200);
+        imprime_tela_ajuste4(*hora_max,*min_max);
+        if(BT_Ajuste==0)
+        {
+            *hora_max=*hora_max+1;
+        }
+        if (*hora_max>23)
+        {
+            *hora_max=0;
+        }
+    }
+    __delay_ms(200);
+    while(BT_Select!=0)
+    {
+        __delay_ms(200);
+        imprime_tela_ajuste4(*hora_max,*min_max);
+        if(BT_Ajuste==0)
+        {
+            *min_max=*min_max+1;
+        }
+        if (*min_max>59)
+        {
               *min_max=0;
-      }
-      __delay_ms(200);
-      
-      LCD_Cmd(LCD_CLEAR);
-      
-      return;
-      
+        }
+    }
+    __delay_ms(200);
     
+    LCD_Cmd(LCD_CLEAR);
+      
+    return;   
 }
 
 int controle_aquecedor(int temp,int hora_min,int min_min,int hora_max,int min_max)
 {     
-        if(hora_min<hora_max)
+    if(hora_min<hora_max)
+    {
+        if(Horas>hora_min)
         {
-            if(Horas>hora_min)
+            if(Horas<hora_max)
             {
-                if(Horas<hora_max)
-                    return 1;
-                else if(Horas==hora_max)
-                {
-                    if (Minutos<min_max)
-                        return 1;
-                    return 0;
-                }
-                else 
-                    return 0;
-                    
+                return 1;
             }
-            else if(Horas==hora_min)
+            else if(Horas==hora_max)
             {
-                if (Minutos>min_min)
+                if (Minutos<min_max)
                 {
-                if(Horas<hora_max)
-                    return 1;
-                else if(Horas==hora_max)
-                {
-                    if (Minutos<min_max)
-                        return 1;
-                    return 0;
+                      return 1;
                 }
-                else 
-                    return 0;
-                }
-            }
-            else
                 return 0;
-            
-             
+            }
+            else 
+            {
+                    return 0;
+            }
+                    
+        }
+        else if(Horas==hora_min)
+        {
+            if (Minutos>min_min)
+            {
+                if(Horas<hora_max)
+                {
+                    return 1;
+                }
+                else if(Horas==hora_max)
+                {
+                    if (Minutos<min_max)
+                    {
+                        return 1;
+                    }
+                    return 0;
+                }
+                else 
+                {
+                    return 0;
+                }
+            }
         }
         else
         {
-            if (Horas>hora_min)
-                return 1;
-            else if(Horas==hora_min)
+            return 0;
+        }         
+    }
+    else
+    {
+        if (Horas>hora_min)
+        {
+            return 1;
+        }
+        else if(Horas==hora_min)
+        {
+            if (Minutos>min_min)
             {
-                if (Minutos>min_min)
-                    return 1;
-                else 
+                return 1;
+            }
+            else 
+            {
                     return 0;
             }
-            else
-                if(Horas<hora_max)
-                    return 1;
-                else if (Horas==hora_max)
+        }
+        else
+        {
+            if(Horas<hora_max)
+            {
+                return 1;
+            }
+            else if (Horas==hora_max)
+            {
+                if (Minutos<min_min)
                 {
-                    if (Minutos<min_min)
-                        return 1;
-                    else
-                        return 0;
+                    return 1;
                 }
                 else
+                {
                     return 0;
-        }        
+                }
+            }
+            else
+            {
+                return 0;
+            }
+        }
+    }        
 }
 
 void __interrupt () my_isr_routine (void)
@@ -371,4 +427,3 @@ void main(void)
     
     return;
 }
-
