@@ -1,9 +1,11 @@
 /*-----------------------FIRMWARE PARA AQUECEDOR DO PIC-----------------------*/
 /*
- * Arquivo:   main.c
- * Autor  :   Mateus Eusébio
+ * Arquivo:          main.c
+ * Autor  :          Mateus Eusébio
+ * Microcontrolador: PIC16F877
  *
  * Created on 4 de Dezembro de 2020, 10:41
+ * Última atualização: 24/07/21
  */
 
 /*------------------------------Configurações---------------------------------*/
@@ -62,6 +64,7 @@
 #include <stdio.h>            // para o sprintf
 #include "LCD_Lib.c"          // include LCD driver source file
 #include <stdlib.h>
+#include <math.h>               //round
 
 
 
@@ -72,6 +75,7 @@ int Minutos=0;
 int Horas=0;
 int Temperatura=0;
 char LCD_Cstring[16];
+
 
 void atualiza_ADC()
 {
@@ -397,7 +401,7 @@ void main(void)
     TRISD       =0b00000000;//portd outputs
     TRISE       =0b00000000;//porte outputs
     ADCON0      =0b00000001;//clock concersion=fosc/2,canal=RA0,go/done=0,modulo AD ligado
-    ADCON1      =0b00001110;//resultado right jsutified(ADDRESH),somente RA0 pin analógico, referência=Vdd e Vss
+    ADCON1      =0b10001110;//resultado right jsutified(ADDRESH),somente RA0 pin analógico, referência=Vdd e Vss
     
     LCD_Begin();       // initialize LCD module    
    
@@ -409,7 +413,11 @@ void main(void)
     while(1)
     {
         atualiza_ADC();
-        Temperatura=(int)ADRESH/2.56;
+        
+        //Temperatura=(int)ADRESH/2.56;
+        Temperatura=round(((ADRESL + (ADRESH *256))/2.046)-50);
+        
+        
         imprime_tela_main();
         if(BT_Select==0)
             ajustes(&temp,&hora_min,&min_min,&hora_max,&min_max);
