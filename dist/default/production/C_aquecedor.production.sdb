@@ -49,25 +49,25 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"80 C:\Users\mateu\Documents\C aquecedor\main.c
+"79 C:\Users\mateu\Documents\C aquecedor\main.c
 [v _atualiza_ADC atualiza_ADC `(v  1 e 1 0 ]
-"90
+"89
 [v _imprime_tela_main imprime_tela_main `(v  1 e 1 0 ]
-"102
+"101
 [v _imprime_tela_ajuste1 imprime_tela_ajuste1 `(v  1 e 1 0 ]
-"110
+"109
 [v _imprime_tela_ajuste2 imprime_tela_ajuste2 `(v  1 e 1 0 ]
-"124
+"123
 [v _imprime_tela_ajuste3 imprime_tela_ajuste3 `(v  1 e 1 0 ]
-"135
+"134
 [v _imprime_tela_ajuste4 imprime_tela_ajuste4 `(v  1 e 1 0 ]
-"147
+"146
 [v _ajustes ajustes `(v  1 e 1 0 ]
-"263
+"267
 [v _controle_aquecedor controle_aquecedor `(i  1 e 2 0 ]
-"356
+"360
 [v _my_isr_routine my_isr_routine `II(v  1 e 1 0 ]
-"394
+"398
 [v _main main `(v  1 e 1 0 ]
 "34 C:\Users\mateu\Documents\C aquecedor/LCD_Lib.c
 [v _RS RS `b  1 e 0 0 ]
@@ -185,32 +185,32 @@
 [v _TRISD5 TRISD5 `VEb  1 e 0 @1093 ]
 "358 D:\Programas\XC8 compiler\pic\sources\c90\common\doprnt.c
 [v _dpowers dpowers `DC[5]ui  1 s 10 dpowers ]
-"72 C:\Users\mateu\Documents\C aquecedor\main.c
+"71 C:\Users\mateu\Documents\C aquecedor\main.c
 [v _TMR0_aux TMR0_aux `i  1 e 2 0 ]
-"73
+"72
 [v _Segundos Segundos `i  1 e 2 0 ]
-"74
+"73
 [v _Minutos Minutos `i  1 e 2 0 ]
-"75
+"74
 [v _Horas Horas `i  1 e 2 0 ]
-"76
+"75
 [v _Temperatura Temperatura `i  1 e 2 0 ]
-"77
+"76
 [v _LCD_Cstring LCD_Cstring `[16]uc  1 e 16 0 ]
-"394
+"398
 [v _main main `(v  1 e 1 0 ]
 {
-"408
-[v main@temp temp `i  1 a 2 36 ]
 "412
+[v main@temp temp `i  1 a 2 36 ]
+"416
 [v main@min_max min_max `i  1 a 2 34 ]
-"411
+"415
 [v main@hora_max hora_max `i  1 a 2 32 ]
-"410
+"414
 [v main@min_min min_min `i  1 a 2 30 ]
-"409
+"413
 [v main@hora_min hora_min `i  1 a 2 28 ]
-"437
+"441
 } 0
 "6 D:\Programas\XC8 compiler\pic\sources\c90\common\round.c
 [v _round round `(d  1 e 4 0 ]
@@ -294,12 +294,12 @@
 [v ___fladd@a a `d  1 p 4 40 ]
 "237
 } 0
-"90 C:\Users\mateu\Documents\C aquecedor\main.c
+"89 C:\Users\mateu\Documents\C aquecedor\main.c
 [v _imprime_tela_main imprime_tela_main `(v  1 e 1 0 ]
 {
-"100
+"99
 } 0
-"263
+"267
 [v _controle_aquecedor controle_aquecedor `(i  1 e 2 0 ]
 {
 [v controle_aquecedor@temp temp `i  1 p 2 0 ]
@@ -307,14 +307,14 @@
 [v controle_aquecedor@min_min min_min `i  1 p 2 4 ]
 [v controle_aquecedor@hora_max hora_max `i  1 p 2 6 ]
 [v controle_aquecedor@min_max min_max `i  1 p 2 8 ]
-"354
+"358
 } 0
-"80
+"79
 [v _atualiza_ADC atualiza_ADC `(v  1 e 1 0 ]
 {
-"88
+"87
 } 0
-"147
+"146
 [v _ajustes ajustes `(v  1 e 1 0 ]
 {
 [v ajustes@temp temp `*.4i  1 a 1 wreg ]
@@ -323,34 +323,34 @@
 [v ajustes@min_min min_min `*.4i  1 p 1 34 ]
 [v ajustes@hora_max hora_max `*.4i  1 p 1 35 ]
 [v ajustes@min_max min_max `*.4i  1 p 1 36 ]
-"149
+"148
 [v ajustes@temp temp `*.4i  1 a 1 41 ]
-"261
+"265
 } 0
-"135
+"134
 [v _imprime_tela_ajuste4 imprime_tela_ajuste4 `(v  1 e 1 0 ]
 {
 [v imprime_tela_ajuste4@horas_max horas_max `i  1 p 2 28 ]
 [v imprime_tela_ajuste4@minutos_max minutos_max `i  1 p 2 30 ]
-"145
+"144
 } 0
-"124
+"123
 [v _imprime_tela_ajuste3 imprime_tela_ajuste3 `(v  1 e 1 0 ]
 {
 [v imprime_tela_ajuste3@horas_min horas_min `i  1 p 2 28 ]
 [v imprime_tela_ajuste3@minutos_min minutos_min `i  1 p 2 30 ]
-"134
+"133
 } 0
-"110
+"109
 [v _imprime_tela_ajuste2 imprime_tela_ajuste2 `(v  1 e 1 0 ]
 {
-"122
+"121
 } 0
-"102
+"101
 [v _imprime_tela_ajuste1 imprime_tela_ajuste1 `(v  1 e 1 0 ]
 {
 [v imprime_tela_ajuste1@temp temp `i  1 p 2 28 ]
-"108
+"107
 } 0
 "505 D:\Programas\XC8 compiler\pic\sources\c90\common\doprnt.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
@@ -480,8 +480,8 @@
 [v LCD_Write_Nibble@n n `uc  1 a 1 5 ]
 "58
 } 0
-"356 C:\Users\mateu\Documents\C aquecedor\main.c
+"360 C:\Users\mateu\Documents\C aquecedor\main.c
 [v _my_isr_routine my_isr_routine `II(v  1 e 1 0 ]
 {
-"390
+"394
 } 0

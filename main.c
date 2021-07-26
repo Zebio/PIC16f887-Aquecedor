@@ -32,12 +32,12 @@
 
 /*--------------------------MAPEAMENTO DE HARDWARE----------------------------*/
 //CONEXÕES DO MÓDULO LCD
-#define LCD_RS       PORTDbits.RD0
-#define LCD_EN       PORTDbits.RD1
-#define LCD_D4       PORTDbits.RD2
-#define LCD_D5       PORTDbits.RD3
-#define LCD_D6       PORTDbits.RD4
-#define LCD_D7       PORTDbits.RD5
+#define LCD_RS       PORTDbits.RD2
+#define LCD_EN       PORTDbits.RD3
+#define LCD_D4       PORTDbits.RD4
+#define LCD_D5       PORTDbits.RD5
+#define LCD_D6       PORTDbits.RD6
+#define LCD_D7       PORTDbits.RD7      
 #define LCD_RS_DIR   TRISD0
 #define LCD_EN_DIR   TRISD1
 #define LCD_D4_DIR   TRISD2
@@ -52,8 +52,7 @@
 #define BT_Ajuste       PORTBbits.RB1
 
 //AS CHAVES DE NÍVEL QUE INDICAM O NÍVEL DA AGUA DO AQUECEDOR
-#define SW_Chave1       PORTBbits.RB4
-#define SW_Chave2       PORTBbits.RB5
+#define Nivel_critico   PORTBbits.RB4
 
 //SAÍDA PARA O RELÉ QUE ATIVA O AQUECEDOR
 #define Rele            PORTCbits.RC0
@@ -148,112 +147,117 @@ void ajustes(int *temp,int *hora_min,int *min_min,int *hora_max,int *min_max)
 {
     LCD_Cmd(LCD_CLEAR);
     imprime_tela_ajuste1(*temp);
-    __delay_ms(200);
-      
+    __delay_ms(300);
     while(BT_Select!=0)
     {
-        __delay_ms(200);
-        imprime_tela_ajuste1(*temp);
         if(BT_Ajuste==0)
         {
             *temp=*temp+1;
-        }
-        if (*temp>99)
-        {
-            *temp=0;
+            if (*temp>99)
+            {
+                *temp=0;
+            }
+            imprime_tela_ajuste1(*temp);
+            __delay_ms(250);
         }
     }
     LCD_Cmd(LCD_CLEAR);
     imprime_tela_ajuste2();
-    __delay_ms(200);
+    __delay_ms(300);
     while(BT_Select!=0)
     {
-        __delay_ms(200);
-        imprime_tela_ajuste2();
         if(BT_Ajuste==0)
         {
             Horas=Horas+1;
-        }
-        if (Horas>23)
-        {
-            Horas=0;
+            if (Horas>23)
+            {
+                Horas=0;
+            }
+            imprime_tela_ajuste2();
+            __delay_ms(250);
         }
     }
-    __delay_ms(200);
+    __delay_ms(300);
     while(BT_Select!=0)
     {
-        __delay_ms(200);
-        imprime_tela_ajuste2();
         if(BT_Ajuste==0)
         {
             Minutos=Minutos+1;
-        }
-        if (Minutos>59)
-        {
-            Minutos=0;
+            if (Minutos>59)
+            {
+                Minutos=0;
+            }
+            imprime_tela_ajuste2();
+            __delay_ms(250);
         }
     }
     LCD_Cmd(LCD_CLEAR);
     imprime_tela_ajuste3(*hora_min,*min_min);
-    __delay_ms(200);
+    __delay_ms(300);
     while(BT_Select!=0)
     {
-        __delay_ms(200);
-        imprime_tela_ajuste3(*hora_min,*min_min);
+        
+
         if(BT_Ajuste==0)
         {
             *hora_min=*hora_min+1;
+            if (*hora_min>23)
+            {
+                *hora_min=0;
+            }
+            imprime_tela_ajuste3(*hora_min,*min_min);
+            __delay_ms(250);
         }
-        if (*hora_min>23)
-        {
-            *hora_min=0;
-        }
+
     }
-    __delay_ms(200);
+    __delay_ms(300);
     while(BT_Select!=0)
     {
-        __delay_ms(200);
-        imprime_tela_ajuste3(*hora_min,*min_min);
+        
         if(BT_Ajuste==0)
         {
             *min_min=*min_min+1;
-        }
-        if (*min_min>59)
-        {
-            *min_min=0;
+            if (*min_min>59)
+            {
+                *min_min=0;
+            }
+            imprime_tela_ajuste3(*hora_min,*min_min);
+            __delay_ms(250);
         }
     }
     LCD_Cmd(LCD_CLEAR);
     imprime_tela_ajuste4(*hora_max,*min_max);
-    __delay_ms(200);
+    __delay_ms(250);
     while(BT_Select!=0)
     {
-        __delay_ms(200);
-        imprime_tela_ajuste4(*hora_max,*min_max);
+        
+        
         if(BT_Ajuste==0)
         {
             *hora_max=*hora_max+1;
-        }
-        if (*hora_max>23)
-        {
-            *hora_max=0;
-        }
+            if (*hora_max>23)
+            {
+                *hora_max=0;
+            }
+            imprime_tela_ajuste4(*hora_max,*min_max);
+            __delay_ms(250);
+        }   
     }
-    __delay_ms(200);
+    __delay_ms(300);
     while(BT_Select!=0)
     {
-        __delay_ms(200);
-        imprime_tela_ajuste4(*hora_max,*min_max);
         if(BT_Ajuste==0)
         {
             *min_max=*min_max+1;
-        }
-        if (*min_max>59)
-        {
-              *min_max=0;
+            if (*min_max>59)
+            {
+                *min_max=0;
+            }
+            imprime_tela_ajuste4(*hora_max,*min_max);
+            __delay_ms(250);
         }
     }
-    __delay_ms(200);
+    __delay_ms(250);
     
     LCD_Cmd(LCD_CLEAR);
       
@@ -393,10 +397,10 @@ void __interrupt () my_isr_routine (void)
 
 void main(void) 
 {
-    OPTION_REG  =0b01010101;//prescaller 64 para timer0, fonte do timer0 clock interno, Portb Pull-up
+    OPTION_REG  =0b01010101;//prescaller 64 para timer0, fonte do timer0 clock interno, Portb weak Pull-ups ativados
     INTCON      =0b10100000;//interrupções globais e do timer0 somente
     TRISA       =0b00000001;//DEFINE RA0 COMO ENTRADA ***RAO É A ENTRADA DO ADC
-    TRISB       =0b00110011;//INPUTS RB0,RB1,RB4 E RB5
+    TRISB       =0b00010011;//INPUTS RB0,RB1 E RB4 
     TRISC       =0b00000000;//portc outputs
     TRISD       =0b00000000;//portd outputs
     TRISE       =0b00000000;//porte outputs
@@ -405,7 +409,7 @@ void main(void)
     
     LCD_Begin();       // initialize LCD module    
    
-    int temp     =0;
+    int temp     =25;
     int hora_min =0;
     int min_min  =0;
     int hora_max =0;
@@ -422,7 +426,7 @@ void main(void)
         if(BT_Select==0)
             ajustes(&temp,&hora_min,&min_min,&hora_max,&min_max);
         
-        if(SW_Chave1==0&&SW_Chave2==0)
+        if(Nivel_critico==0)
         {
             if (Temperatura<(temp-5))
                 Rele = controle_aquecedor(temp,hora_min,min_min,hora_max,min_max);
