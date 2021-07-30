@@ -1,0 +1,8 @@
+Added Component: Designator=H1(HOLE_M3)
+Added Component: Designator=H2(HOLE_M3)
+Added Component: Designator=H3(HOLE_M3)
+Added Component: Designator=H4(HOLE_M3)
+Added Pin To Net: NetName=GND Pin=H1-1
+Added Pin To Net: NetName=GND Pin=H2-1
+Added Pin To Net: NetName=GND Pin=H3-1
+Added Pin To Net: NetName=GND Pin=H4-1

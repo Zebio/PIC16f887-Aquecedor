@@ -1,0 +1,9 @@
+Change Component Designator: OldDesignator=+5V NewDesignator=P2
+Change Component Designator: OldDesignator=AJUSTE NewDesignator=S3
+Change Component Designator: OldDesignator=ICSP NewDesignator=P1
+Change Component Designator: OldDesignator=RESET NewDesignator=S1
+Change Component Designator: OldDesignator=SELECT NewDesignator=S2
+Added Component: Designator=H1(HOLE_M2)
+Added Component: Designator=H2(HOLE_M2)
+Added Component: Designator=H3(HOLE_M2)
+Added Component: Designator=H4(HOLE_M2)
