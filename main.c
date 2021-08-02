@@ -361,8 +361,8 @@ void __interrupt () my_isr_routine (void)
 {
     if (INTCONbits.T0IF)//verifica o bit da interrupção do timer0
     {
-       // 1 SEGUNDO = 64us(PRESCALLER) X 125(TMR0) X 125(TMR0_AUX) = 1s
-        TMR0=256-125;
+       // 500 ms = 64us(PRESCALLER) X 62(TMR0) X 125(TMR0_AUX) = 500ms
+        TMR0=256-62;
         TMR0_aux++;
         
         
