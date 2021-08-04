@@ -8,7 +8,7 @@ Sistema Embarcado para controle de temperatura Industrial/Residencial baseado em
 O projeto foi Construído usando 3 Softwares diferentes: 
 * MPLAB X: Para o Firmware
 * Proteus 8.9: Para a Simulação
-* Altium Deligner: Para a Finalização do Hardware, lista de compras e PCB.
+* Altium Designer: Para a Finalização do Hardware, lista de compras e PCB.
 
 Para usar a parte desejada do projeto, basta, com esses softwares instalados, abrir o arquivo de projeto correspondente de cada um deles. Suas pastas e arquivos são especificados nas seções a seguir.
 
