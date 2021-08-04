@@ -14,8 +14,7 @@ Para usar a parte desejada do projeto, basta, com esses softwares instalados, ab
 
 ### Hardware
 
-O projeto de Hardware foi feito no Altium Designer, está na pasta do [Projeto Altium](Aquecedor/), onde foi criado o [Esquemático](Aquecedor/Sheet_Aquecedor.pdf) e [PCB](Aquecedor/PCB_Aquecedor.pdf) do projeto
-Consiste no Pic, um display 16x02 e botões para interação com o usuário, pinos de ICSP, botão de reset, sensor de temperatura, saída para o sensor de água do aquecedor, circuito do oscilador e circuito driver de relé para ativação do aquecedor
+O projeto de Hardware foi feito no Altium Designer, está na pasta do [Projeto Altium](Aquecedor/), onde foi criado o [Esquemático](Aquecedor/Sheet_Aquecedor.pdf) e [PCB](Aquecedor/PCB_Aquecedor.pdf) do projeto, que consiste no Pic, um display 16x02 e botões para interação com o usuário, pinos de ICSP, botão de reset, sensor de temperatura, saída para o sensor de água do aquecedor, circuito do oscilador e circuito driver de relé para ativação do aquecedor
 
 ![](imagens/PCB.png)
 
