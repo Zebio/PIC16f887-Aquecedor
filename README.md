@@ -23,7 +23,7 @@ O projeto de Hardware foi feito no Altium Designer, está na pasta do [Projeto A
 
 ### Firmware
 
-O firmware foi feito usando o MPLAB X, que é a pasta raiz do repositório, o código principal está no arquivo [main.c](Projeto_MPLAB/main.c).
+O firmware foi feito usando o MPLAB X, pode ser acessado na pasta do [Projeto MPLAB](Projeto_MPLAB/), o código principal está no arquivo [main.c](Projeto_MPLAB/main.c).
 
 ### Simulação
 
