@@ -3,7 +3,7 @@
 [d edition pro ]
 [d chip 16F877 ]
 [d frameptr 0 ]
-"43 C:\Users\mateu\Documents\C aquecedor/LCD_Lib.c
+"43 C:\Users\mateu\Documents\C aquecedor\Projeto MPLAB/LCD_Lib.c
 [v _LCD_Write_Nibble LCD_Write_Nibble `(v  1 e 1 0 ]
 "60
 [v _LCD_Cmd LCD_Cmd `(v  1 e 1 0 ]
@@ -49,7 +49,7 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"79 C:\Users\mateu\Documents\C aquecedor\main.c
+"79 C:\Users\mateu\Documents\C aquecedor\Projeto MPLAB\main.c
 [v _atualiza_ADC atualiza_ADC `(v  1 e 1 0 ]
 "89
 [v _imprime_tela_main imprime_tela_main `(v  1 e 1 0 ]
@@ -69,7 +69,7 @@
 [v _my_isr_routine my_isr_routine `II(v  1 e 1 0 ]
 "398
 [v _main main `(v  1 e 1 0 ]
-"34 C:\Users\mateu\Documents\C aquecedor/LCD_Lib.c
+"34 C:\Users\mateu\Documents\C aquecedor\Projeto MPLAB/LCD_Lib.c
 [v _RS RS `b  1 e 0 0 ]
 "59 D:/Programas/MPLABX/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877.h
 [v _TMR0 TMR0 `VEuc  1 e 1 @1 ]
@@ -185,7 +185,7 @@
 [v _TRISD5 TRISD5 `VEb  1 e 0 @1093 ]
 "358 D:\Programas\XC8 compiler\pic\sources\c90\common\doprnt.c
 [v _dpowers dpowers `DC[5]ui  1 s 10 dpowers ]
-"71 C:\Users\mateu\Documents\C aquecedor\main.c
+"71 C:\Users\mateu\Documents\C aquecedor\Projeto MPLAB\main.c
 [v _TMR0_aux TMR0_aux `i  1 e 2 0 ]
 "72
 [v _Segundos Segundos `i  1 e 2 0 ]
@@ -294,7 +294,7 @@
 [v ___fladd@a a `d  1 p 4 40 ]
 "237
 } 0
-"89 C:\Users\mateu\Documents\C aquecedor\main.c
+"89 C:\Users\mateu\Documents\C aquecedor\Projeto MPLAB\main.c
 [v _imprime_tela_main imprime_tela_main `(v  1 e 1 0 ]
 {
 "99
@@ -416,7 +416,7 @@
 [v ___lwdiv@dividend dividend `ui  1 p 2 5 ]
 "30
 } 0
-"95 C:\Users\mateu\Documents\C aquecedor/LCD_Lib.c
+"95 C:\Users\mateu\Documents\C aquecedor\Projeto MPLAB/LCD_Lib.c
 [v _LCD_Print LCD_Print `(v  1 e 1 0 ]
 {
 [v LCD_Print@LCD_Str LCD_Str `*.4uc  1 a 1 wreg ]
@@ -457,7 +457,7 @@
 [v ___fldiv@b b `d  1 p 4 14 ]
 "185
 } 0
-"106 C:\Users\mateu\Documents\C aquecedor/LCD_Lib.c
+"106 C:\Users\mateu\Documents\C aquecedor\Projeto MPLAB/LCD_Lib.c
 [v _LCD_Begin LCD_Begin `(v  1 e 1 0 ]
 {
 "140
@@ -480,7 +480,7 @@
 [v LCD_Write_Nibble@n n `uc  1 a 1 5 ]
 "58
 } 0
-"360 C:\Users\mateu\Documents\C aquecedor\main.c
+"360 C:\Users\mateu\Documents\C aquecedor\Projeto MPLAB\main.c
 [v _my_isr_routine my_isr_routine `II(v  1 e 1 0 ]
 {
 "394

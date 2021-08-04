@@ -385,8 +385,8 @@ text16 2848 2889 CODE 2848 0
 text11 1118 1135 CODE 1118 0
 clrtext 1108 1117 CODE 1108 0
 %locals
-dist/default/production\C_aquecedor.production.o
-C:\Users\mateu\AppData\Local\Temp\xcAsd4k.s
+dist/default/production\Projeto_MPLAB.production.o
+C:\Users\mateu\AppData\Local\Temp\xcAsc8.s
 619 13 0 CODE 0
 622 13 0 CODE 0
 678 13 0 CODE 0

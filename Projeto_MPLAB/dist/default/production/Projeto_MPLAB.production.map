@@ -3,10 +3,10 @@ Microchip MPLAB XC8 Compiler V2.32
 Linker command line:
 
 -W-3 --edf=D:\Programas\XC8 compiler\pic\dat\en_msgs.txt -cn \
-  -h+dist/default/production\C_aquecedor.production.sym \
-  --cmf=dist/default/production\C_aquecedor.production.cmf -z -Q16F877 \
-  -oC:\Users\mateu\AppData\Local\Temp\xcAsd4k.4 --defsym=__MPLAB_BUILD=1 \
-  -Mdist/default/production/C_aquecedor.production.map -E1 \
+  -h+dist/default/production\Projeto_MPLAB.production.sym \
+  --cmf=dist/default/production\Projeto_MPLAB.production.cmf -z -Q16F877 \
+  -oC:\Users\mateu\AppData\Local\Temp\xcAsc8.4 --defsym=__MPLAB_BUILD=1 \
+  -Mdist/default/production/Projeto_MPLAB.production.map -E1 \
   -ver=XC8 Compiler --acfsm=1493 -ASTACK=0110h-016Fh -pstack=STACK \
   -ACODE=00h-07FFhx4 -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 \
   -ACONST=00h-0FFhx32 -AENTRY=00h-0FFhx32 -ACOMMON=070h-07Fh \
@@ -18,8 +18,8 @@ Linker command line:
   -AEEDATA=00h-0FFh/02100h -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 \
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 \
   -preset_vec=00h,intentry=04h,init,end_init -ppowerup=CODE -pcinit=CODE \
-  -pfunctab=ENTRY -k C:\Users\mateu\AppData\Local\Temp\xcAsd4k.o \
-  dist/default/production\C_aquecedor.production.o 
+  -pfunctab=ENTRY -k C:\Users\mateu\AppData\Local\Temp\xcAsc8.o \
+  dist/default/production\Projeto_MPLAB.production.o 
 
 Object code version is 3.11
 
@@ -28,11 +28,11 @@ Machine type is 16F877
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\mateu\AppData\Local\Temp\xcAsd4k.o
+C:\Users\mateu\AppData\Local\Temp\xcAsc8.o
                 end_init                             10       10        3        8       0
                 reset_vec                             0        0        3        0       0
                 config                             2007     2007        1        0       4
-dist/default/production\C_aquecedor.production.o
+dist/default/production\Projeto_MPLAB.production.o
                 cinit                                13       13       14        8       0
                 intentry                              4        4        C        8       0
                 config                             2007     2007        1        0       4
