@@ -19,12 +19,12 @@ Para usar a parte desejada do projeto, basta, com esses softwares instalados, ab
 
 ### Hardware
 
-O projeto de Hardware foi feito no Altium Designer, está na pasta do [Projeto Altium](Aquecedor/), onde foi criado o [Esquemático](Aquecedor/Sheet_Aquecedor.pdf) e [PCB](Aquecedor/PCB_Aquecedor.pdf) do projeto, que consiste no Pic, um display 16x02 e botões para interação com o usuário, pinos de ICSP, circuito de reset, sensor de temperatura, saída para o sensor de água do aquecedor, circuito do oscilador e circuito driver de relé para ativação do aquecedor.
+O projeto de Hardware foi feito no Altium Designer, está na pasta do [Projeto Altium](Projeto_Altium/), onde foi criado o [Esquemático](Documentação/Sheet_Aquecedor.pdf) e [PCB](Documentação/PCB_Aquecedor.pdf) do projeto, que consiste no Pic, um display 16x02 e botões para interação com o usuário, pinos de ICSP, circuito de reset, sensor de temperatura, saída para o sensor de água do aquecedor, circuito do oscilador e circuito driver de relé para ativação do aquecedor.
 
 ### Firmware
 
-O firmware foi feito usando o MPLAB X, que é a pasta raiz do repositório, o código principal está no arquivo [main.c](main.c).
+O firmware foi feito usando o MPLAB X, pode ser acessado na pasta do [Projeto MPLAB](Projeto_MPLAB/), o código principal está no arquivo [main.c](Projeto_MPLAB/main.c).
 
 ### Simulação
 
-A simulação foi feita usando Proteus, todos os arquivos estão na pasta do [Projeto Proteus](Picaquecedor/) todos componentes da simulação são interativos, o que torna possível simular vários cenarios.
+A simulação foi feita usando Proteus, todos os arquivos estão na pasta do [Projeto Proteus](Projeto_Proteus/) todos componentes da simulação são interativos, o que torna possível simular vários cenarios.
